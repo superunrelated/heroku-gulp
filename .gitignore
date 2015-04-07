@@ -17,3 +17,4 @@ pids
 node_modules
 
 .DS
+public
