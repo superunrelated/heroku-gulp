@@ -1,3 +1,5 @@
 gulp = require('gulp')
 
-gulp.task 'default', ['views', 'server', 'build']
+gulp.task('default', ['views', 'server'], () ->
+	gulp.start('build')
+)
