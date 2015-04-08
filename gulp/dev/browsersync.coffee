@@ -1,7 +1,7 @@
 gulp = require('gulp')
 browserSync = require('browser-sync')
 
-gulp.task 'browsersync', ['build'], ->
+gulp.task('browsersync', ['build'], ->
   browserSync
     proxy: "http://localhost:3000"
     files: [
@@ -10,4 +10,4 @@ gulp.task 'browsersync', ['build'], ->
     ]
     logSnippet: false
     port: 3001
-  
+)

@@ -5,6 +5,4 @@ gulp.task('build', [
   'stylus'
   'images'
   'fonts'
-], (err) ->
-	gulp.start('test')
-)
+])

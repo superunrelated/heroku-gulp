@@ -6,9 +6,8 @@ module.exports = React.createClass(
   render: () ->
     return (
       <div className='page about'>
-        <div>About page</div>
-        {@props.title}
-        {@props.body}
+        <h1>{@props.about.title}</h1>
+        <p>{@props.about.body}</p>
       </div>
     )
 )

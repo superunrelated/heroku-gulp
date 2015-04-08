@@ -8,7 +8,6 @@ Menu = require('./elements/menu')
 
 module.exports = React.createClass(
   displayName: 'App'
-  
   render: () ->
     return (
       <div className="container">

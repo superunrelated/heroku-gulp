@@ -7,8 +7,8 @@ console.log('--------------------------------------------')
 console.log(' GULP is running in ' + env + ' mode')
 console.log('--------------------------------------------')
 
-tasks = fs.readdirSync('./gulp/common/').filter(onlyScripts)
-tasks.forEach((task) ->
+common = fs.readdirSync('./gulp/common/').filter(onlyScripts)
+common.forEach((task) ->
   require('./common/' + task)
 )
 
@@ -18,12 +18,26 @@ tasks.forEach((task) ->
 
 switch env
   when 'development'
-    tasks = fs.readdirSync('./gulp/dev/').filter(onlyScripts)
-    tasks.forEach((task) ->
+    dev = fs.readdirSync('./gulp/dev/').filter(onlyScripts)
+    dev.forEach((task) ->
       require('./dev/' + task)
     )
   when 'production'
-    tasks = fs.readdirSync('./gulp/prod/').filter(onlyScripts)
-    tasks.forEach((task) ->
+    prod = fs.readdirSync('./gulp/prod/').filter(onlyScripts)
+    prod.forEach((task) ->
       require('./prod/' + task)
     )
+
+gulp.task('list', -> 
+  if dev
+    list = common.concat(dev)
+  if prod
+    list = common.concat(prod)
+
+  console.log('--------------------------------------------')
+  console.log(' TASKS')
+  list.forEach((task) ->
+    console.log('   ' + task.replace('.coffee', '') )
+  )
+  console.log('--------------------------------------------')
+)

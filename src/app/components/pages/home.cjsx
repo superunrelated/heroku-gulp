@@ -6,7 +6,8 @@ module.exports = React.createClass(
   render: () ->
     return (
       <div className='page home'>
-        <div>Home page</div>
+      	<img src="/img/omg.jpg"/>
+        <h1>OMG</h1>
       </div>
     )
 )

@@ -4,6 +4,6 @@ gulp.task('watchtest', ->
   gulp.watch [
     'src/**'
     'test/**'
-  ], [ 'test' ]
+  ], ['test']
   return
 )

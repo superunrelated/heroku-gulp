@@ -24,25 +24,19 @@ app.use(express.static(path.join(__dirname, '../../public')))
 app.get('*', (req, res) =>
 
   # props could be comming from anywhere!
-  props = {
-    title: "This is React"
-    body: "Isnt it awesome?"
-  }
+  props = 
+    about:
+      title: "This is React"
+      body: "Isn't it awesome?"
 
   Entrypoint.renderToString(req.path, props, (err, redirect, react) =>
     if err 
       return next(err)
 
     if redirect 
-      console.log("redirect", redirect)
       return res.redirect(redirect)
 
     result = {
-    #   browsersync: serverConfig.browsersync
-    #   browserConfig: browserConfig
-    #   env: process.env.NODE_ENV
-    #   title: "Stolleken"
-    #   store: JSON.stringify(data)
       props: JSON.stringify(props)
       react: react
     }
