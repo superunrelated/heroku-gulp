@@ -5,7 +5,7 @@
   "author": "Knut Skåla",
   "license": "MIT",
   "scripts": {
-    "postinstall": "gulp prod",
+    "postinstall": "gulp",
     "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive ./test/"
   },
   "engines": {
