@@ -26,15 +26,16 @@ if onlyServer
 gulp.task('nodemon', ->
   nodemon(
     verbose: true
-    script: './gulp/dev/nodemon-cjsx.coffee'
+    script: './gulp/util/nodemon-cjsx.coffee'
     ext: 'coffee jsx cjsx'
     env:
-      DEBUG: 'stollek:*'
+      DEBUG: 'herokugulp:*'
       NODE_ENV: 'development'
+      PORT: 3000
     ignore: ignore
   )
   .on('start', () ->
-
+    # console.log("-- START")
   )
   .on('restart', () ->
     console.log("-- RESTART")

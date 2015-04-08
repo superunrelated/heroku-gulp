@@ -25,5 +25,5 @@ switch env
   when 'production'
     tasks = fs.readdirSync('./gulp/prod/').filter(onlyScripts)
     tasks.forEach((task) ->
-      require('./dev/' + task)
+      require('./prod/' + task)
     )

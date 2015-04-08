@@ -1,4 +1,4 @@
-require 'coffee-script/register'
+require('coffee-script/register')
 gulp = require('gulp')
 mocha = require('gulp-mocha')
 
@@ -12,12 +12,4 @@ gulp.task('test', ->
         recursive: true
       )
     )
-)
-
-gulp.task('watchtests', ->
-  gulp.watch [
-    'src/**'
-    'test/**'
-  ], [ 'test' ]
-  return
 )

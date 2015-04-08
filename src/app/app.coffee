@@ -1,8 +1,16 @@
+_ = require('lodash')
+React = require('react')
+Entrypoint = require('./entrypoint')
 
-react = require('./react/react')
+module.exports = class App
+  constructor: () ->
 
-app = () ->
-  console.log('THIS IS THE APP')
+  init: () =>
+    elm = window.document.getElementById('props')
+    props = JSON.parse(elm.innerHTML)
+    Entrypoint.render(props, (err, state) =>
+      @state = state
+    )
 
-
-app()
+app = new App()
+app.init()

@@ -1,9 +1,10 @@
 {
   "name": "heroku-gulp",
   "version": "0.0.1",
-  "description": "A template for building a project on Heroku using Gulp",
+  "description": "A template for building a project on Heroku with Gulp",
   "scripts": {
-    "test": "test"
+    "postinstall": "gulp prod",
+    "test": "./node_modules/mocha/bin/mocha --compilers coffee:coffee-script/register --recursive ./test/"
   },
   "repository": {
     "type": "git",
@@ -16,9 +17,13 @@
   },
   "homepage": "https://github.com/superunrelated/heroku-gulp",
   "dependencies": {
+    "body-parser": "^1.12.2",
     "browserify": "^9.0.3",
+    "chai": "^2.2.0",
     "coffee-reactify": "^3.0.0",
     "coffee-script": "^1.9.1",
+    "cookie-parser": "^1.3.4",
+    "debug": "^2.1.3",
     "express": "^4.12.3",
     "gulp": "^3.8.11",
     "gulp-changed": "^1.2.1",
@@ -28,20 +33,27 @@
     "gulp-imagemin": "^2.2.1",
     "gulp-mocha": "^2.0.0",
     "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-stylus": "^2.0.1",
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.4",
+    "jade": "^1.9.2",
+    "lodash": "^3.6.0",
+    "mocha": "^2.2.1",
+    "morgan": "^1.5.2",
     "nib": "^1.1.0",
     "pretty-hrtime": "^1.0.0",
+    "react": "^0.13.1",
     "react-router": "^0.13.2",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "vinyl-transform": "^1.0.0",
-    "react": "^0.13.1"
+    "vinyl-transform": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.4.0",
     "gulp-nodemon": "^2.0.2",
     "gulp-sourcemaps": "^1.5.1",
+    "node-cjsx": "^0.1.3",
     "watchify": "^2.6.2"
   }
 }

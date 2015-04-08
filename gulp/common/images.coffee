@@ -7,5 +7,5 @@ gulp.task('images', ->
   gulp.src('./src/img/**')
   	.pipe(changed(dest))
   	.pipe(imagemin())
-  	.pipe gulp.dest(dest)
+  	.pipe(gulp.dest(dest))
 )

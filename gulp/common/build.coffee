@@ -1,8 +1,10 @@
 gulp = require('gulp')
 
 gulp.task('build', [
-  'browserify'
+	'browserify'
   'stylus'
   'images'
-  'copy'
-])
+  'fonts'
+], (err) ->
+	gulp.start('test')
+)

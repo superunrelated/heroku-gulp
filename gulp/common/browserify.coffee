@@ -1,15 +1,18 @@
 gulp = require('gulp')
 browserify = require('browserify')
 coffeereactify = require('coffee-reactify')
-watchify = require('watchify')
 bundleLogger = require('../util/bundleLogger')
 handleErrors = require('../util/handleErrors')
 source = require('vinyl-source-stream')
+uglify = require('gulp-uglify')
+gulpif = require('gulp-if')
+buffer = require('vinyl-buffer')
+
 
 files = [
   {
     input: [ './src/app/app.coffee' ]
-    output: 'main.js'
+    output: 'app.js'
   }
   {
     input: [ './src/admin/admin.coffee' ]
@@ -31,19 +34,23 @@ createBundle = (options) ->
     transform: [coffeereactify]
   )
 
-  rebundle = ->
+  rebundle = () ->
     bundler
       .bundle()
       .on('error', handleErrors)
       .pipe(source(options.output))
+      .pipe(gulpif(process.env.NODE_ENV is 'production', buffer()))
+      .pipe(gulpif(process.env.NODE_ENV is 'production', uglify()))
       .pipe(gulp.dest('./public/js/'))
       .on('end', () ->
 
       )
 
   if global.isWatching
+    watchify = require('watchify')
     bundler = watchify(bundler)
     bundler.on('update', rebundle)
+
   rebundle()
 
 createBundles = (bundles) ->
